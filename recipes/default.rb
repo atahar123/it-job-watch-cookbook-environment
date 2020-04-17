@@ -51,7 +51,7 @@ bash 'install_requirements' do
   EOH
 end
 
-directory '/home/vagrant/Downloads' do
+directory '/home/ubuntu/Downloads' do
   owner 'root'
   group 'root'
   action :create

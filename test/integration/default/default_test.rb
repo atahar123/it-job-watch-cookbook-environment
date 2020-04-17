@@ -14,7 +14,7 @@ describe package 'python3-pip' do
 end
 
 
-describe directory '/home/vagrant/Downloads' do
+describe directory '/home/ubuntu/Downloads' do
   it {should exist}
 end
 
