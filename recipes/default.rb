@@ -21,11 +21,31 @@ end
 
 package 'packer'
 
+bash 'install chef' do
+  code <<-EOL
+  wget https://packages.chef.io/files/stable/chef-workstation/0.2.43/ubuntu/18.04/chef-workstation_0.2.43-1_amd64.deb
+  sudo dpkg -i chef-workstation_*.deb
+  rm chef-workstation_*.deb
+  EOL
+end
+
 package 'python3-pip'
 
 # templates '/home/ubuntu/requirements.txt' do
 #   source 'requirements.txt.erb'
 # end
+
+bash 'install_default_jre' do
+  code <<-EOH
+    sudo apt-get -y install default-jre
+    EOH
+end
+
+bash 'install_default_jdk' do
+  code <<-EOH
+    sudo apt-get -y install default-jdk
+    EOH
+end
 
 bash 'install_requirements' do
   code <<-EOH
